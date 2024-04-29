@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Login</h1>
+            <form>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="right">
+            <h1>Register</h1>
+            <form>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.container').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let form = e.target;
+            let formData = new FormData(form);
+            if (form.id === 'login-form') {
+                console.log('Logging in with username:', formData.get('username'), 'and password:', formData.get('password'));
+            } else if (form.id === 'register-form') {
+                console.log('Registering with username:', formData.get('username'), 'email:', formData.get('email'), 'and password:', formData.get('password'));
+            }
+        });
+    </script>
+</body>
+</html>
